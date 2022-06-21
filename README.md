@@ -34,6 +34,7 @@
 * 编写**特定模块服务端代码，依次完成dao，service，handler部分的开发，用于和api服务的交互**
 * 编写api服务端代码，封装rpc请求函数，在handler中基于gin处理解析http请求参数（**即从http request到rpc request**），并重新打包rpc响应内容（即从rpc response到http response）
 
+
 ## 运行方式
 
 1. 运行基础依赖
