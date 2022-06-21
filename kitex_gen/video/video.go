@@ -5,7 +5,7 @@ package video
 import (
 	"context"
 	"fmt"
-	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/YuleZhang/douyin/kitex_gen/user"
 	"github.com/apache/thrift/lib/go/thrift"
 	"strings"
 )

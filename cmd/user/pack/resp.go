@@ -3,8 +3,8 @@ package pack
 import (
 	"errors"
 
-	"github.com/yulezhang/douyin/kitex_gen/user"
-	"github.com/yulezhang/douyin/pkg/errno"
+	"github.com/YuleZhang/douyin/kitex_gen/user"
+	"github.com/YuleZhang/douyin/pkg/errno"
 )
 
 func BuildBaseResp(err error) *user.BaseResp {

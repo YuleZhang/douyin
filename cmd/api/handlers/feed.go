@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/YuleZhang/douyin/cmd/api/rpc"
+	"github.com/YuleZhang/douyin/kitex_gen/video"
+	"github.com/YuleZhang/douyin/pkg/errno"
 	"github.com/gin-gonic/gin"
-	"github.com/yulezhang/douyin/cmd/api/rpc"
-	"github.com/yulezhang/douyin/kitex_gen/video"
-	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 type FeedResponse struct {

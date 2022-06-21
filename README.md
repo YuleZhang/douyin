@@ -83,6 +83,5 @@ sh output/bootstrap.sh
 ## 其他
 * 本项目基于青训营Go笔记项目，相关资料可参考[青训营笔记服务项目概述](https://juejin.cn/post/7095977466094682148#heading-31)
 * hyper-v和安卓模拟器冲突问题解决见：[Windows下hyper-v和安卓模拟器冲突问题](https://blog.csdn.net/weixin_42474261/article/details/125396451?spm=1001.2014.3001.5501)
-
-
+* https://github.com/a76yyyy/tiktok
 

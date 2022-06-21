@@ -2,7 +2,7 @@
 package videoservice
 
 import (
-	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/YuleZhang/douyin/kitex_gen/video"
 	"github.com/cloudwego/kitex/server"
 )
 

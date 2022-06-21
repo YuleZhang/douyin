@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 
-	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/YuleZhang/douyin/kitex_gen/user"
 
-	"github.com/yulezhang/douyin/cmd/user/dao/db"
+	"github.com/YuleZhang/douyin/cmd/user/dao/db"
 
-	"github.com/yulezhang/douyin/cmd/user/pack"
+	"github.com/YuleZhang/douyin/cmd/user/pack"
 )
 
 type DouyinUserService struct {

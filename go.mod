@@ -1,4 +1,4 @@
-module github.com/yulezhang/douyin
+module github.com/YuleZhang/douyin
 
 go 1.17
 
@@ -12,6 +12,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
+	github.com/YuleZhang/douyin v0.0.0-20220621150036-9da0c5c20120
 	gorm.io/driver/mysql v1.3.4
 	gorm.io/gorm v1.23.6
 	gorm.io/plugin/opentracing v0.0.0-20211220013347-7d2b2af23560

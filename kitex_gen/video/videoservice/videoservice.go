@@ -4,7 +4,7 @@ package videoservice
 
 import (
 	"context"
-	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/YuleZhang/douyin/kitex_gen/video"
 	"github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
 )

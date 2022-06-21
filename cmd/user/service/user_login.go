@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/yulezhang/douyin/pkg/errno"
+	"github.com/YuleZhang/douyin/pkg/errno"
 
-	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/YuleZhang/douyin/kitex_gen/user"
 
-	"github.com/yulezhang/douyin/cmd/user/dao/db"
+	"github.com/YuleZhang/douyin/cmd/user/dao/db"
 )
 
 type DouyinUserLoginService struct {

@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/YuleZhang/douyin/cmd/api/handlers"
+	"github.com/YuleZhang/douyin/cmd/api/rpc"
+	"github.com/YuleZhang/douyin/controller"
+	"github.com/YuleZhang/douyin/kitex_gen/user"
+	"github.com/YuleZhang/douyin/pkg/constants"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
-	"github.com/yulezhang/douyin/cmd/api/handlers"
-	"github.com/yulezhang/douyin/cmd/api/rpc"
-	"github.com/yulezhang/douyin/controller"
-	"github.com/yulezhang/douyin/kitex_gen/user"
-	"github.com/yulezhang/douyin/pkg/constants"
 )
 
 func initRouter(r *gin.Engine) {

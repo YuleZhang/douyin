@@ -3,19 +3,19 @@ package main
 import (
 	"net"
 
-	video "github.com/yulezhang/douyin/kitex_gen/video/videoservice"
+	video "github.com/YuleZhang/douyin/kitex_gen/video/videoservice"
 
+	"github.com/YuleZhang/douyin/cmd/video/dao"
+	"github.com/YuleZhang/douyin/pkg/bound"
+	"github.com/YuleZhang/douyin/pkg/constants"
+	"github.com/YuleZhang/douyin/pkg/middleware"
+	tracer2 "github.com/YuleZhang/douyin/pkg/tracer"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/limit"
 	"github.com/cloudwego/kitex/pkg/rpcinfo"
 	"github.com/cloudwego/kitex/server"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	trace "github.com/kitex-contrib/tracer-opentracing"
-	"github.com/yulezhang/douyin/cmd/video/dao"
-	"github.com/yulezhang/douyin/pkg/bound"
-	"github.com/yulezhang/douyin/pkg/constants"
-	"github.com/yulezhang/douyin/pkg/middleware"
-	tracer2 "github.com/yulezhang/douyin/pkg/tracer"
 )
 
 func Init() {
