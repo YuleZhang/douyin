@@ -10,7 +10,7 @@ import (
 
 	"github.com/apache/thrift/lib/go/thrift"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
+	"github.com/yulezhang/douyin/kitex_gen/user"
 	"github.com/cloudwego/kitex/pkg/protocol/bthrift"
 )
 

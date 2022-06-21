@@ -3,8 +3,8 @@ package pack
 import (
 	"errors"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 func BuildBaseResp(err error) *user.BaseResp {

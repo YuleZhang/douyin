@@ -4,7 +4,7 @@ package videoservice
 
 import (
 	"context"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
+	"github.com/yulezhang/douyin/kitex_gen/video"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"
 )

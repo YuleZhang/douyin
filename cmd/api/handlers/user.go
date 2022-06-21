@@ -4,10 +4,10 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/errno"
 
-	"github.com/RaymondCode/simple-demo/cmd/api/rpc"
+	"github.com/yulezhang/douyin/cmd/api/rpc"
 
 	"net/http"
 
@@ -46,7 +46,7 @@ func Register(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, UserRegistResponse{
-		Response: Response{StatusCode: 0, StatusMsg: "regist success!"},
+		Response: Response{StatusCode: errno.SuccessCode, StatusMsg: "regist success!"},
 		UserId:   uid,
 	})
 }
@@ -55,7 +55,7 @@ func UserInfo(c *gin.Context) {
 	user_id, err := strconv.ParseInt(c.Query("user_id"), 10, 64)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, UserInfoResponse{
-			Response: Response{StatusCode: 0, StatusMsg: "Error parameter"},
+			Response: Response{StatusCode: errno.SuccessCode, StatusMsg: "Error parameter"},
 		})
 	}
 	// token := c.Query("token")
@@ -72,7 +72,10 @@ func UserInfo(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, UserInfoResponse{
-		Response: Response(*resp.BaseResp),
-		User:     *resp.User[0],
+		Response: Response{
+			StatusCode: errno.SuccessCode,
+			StatusMsg:  resp.BaseResp.StatusMsg,
+		},
+		User: *resp.User[0],
 	})
 }

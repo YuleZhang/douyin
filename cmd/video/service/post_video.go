@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	"github.com/RaymondCode/simple-demo/cmd/video/dao/db"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
+	"github.com/yulezhang/douyin/cmd/video/dao/db"
+	"github.com/yulezhang/douyin/kitex_gen/video"
 )
 
 type DouyinPublishActionService struct {

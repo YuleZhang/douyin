@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 
-	"github.com/RaymondCode/simple-demo/cmd/video/pack"
-	"github.com/RaymondCode/simple-demo/cmd/video/service"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
+	"github.com/yulezhang/douyin/cmd/video/pack"
+	"github.com/yulezhang/douyin/cmd/video/service"
+	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 // VideoServiceImpl implements the last service interface defined in the IDL.

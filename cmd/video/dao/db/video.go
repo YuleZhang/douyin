@@ -3,8 +3,8 @@ package db
 import (
 	"context"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/constants"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/constants"
 	"gorm.io/gorm"
 )
 

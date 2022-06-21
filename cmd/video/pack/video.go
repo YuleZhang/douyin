@@ -3,9 +3,9 @@ package pack
 import (
 	"context"
 
-	"github.com/RaymondCode/simple-demo/cmd/video/dao/db"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
+	"github.com/yulezhang/douyin/cmd/video/dao/db"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/kitex_gen/video"
 )
 
 // User pack user info

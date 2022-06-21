@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/RaymondCode/simple-demo/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/constants"
 	"gorm.io/gorm"
 )
 

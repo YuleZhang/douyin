@@ -2,15 +2,16 @@ package main
 
 import (
 	"context"
+	"net/http"
 	"time"
 
-	"github.com/RaymondCode/simple-demo/cmd/api/handlers"
-	"github.com/RaymondCode/simple-demo/cmd/api/rpc"
-	"github.com/RaymondCode/simple-demo/controller"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/constants"
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
+	"github.com/yulezhang/douyin/cmd/api/handlers"
+	"github.com/yulezhang/douyin/cmd/api/rpc"
+	"github.com/yulezhang/douyin/controller"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/constants"
 )
 
 func initRouter(r *gin.Engine) {
@@ -32,18 +33,37 @@ func initRouter(r *gin.Engine) {
 			if len(username) == 0 || len(password) == 0 {
 				return "", jwt.ErrMissingLoginValues
 			}
-			return rpc.DouyinUserLogin(context.Background(), &user.DouyinUserLoginRequest{Username: username, Password: password})
+			uid, err := rpc.DouyinUserLogin(context.Background(), &user.DouyinUserLoginRequest{Username: username, Password: password})
+			c.Set("user_id", uid)
+			return uid, err
 		},
 		TokenLookup:   "header: Authorization, query: token, cookie: jwt",
 		TokenHeadName: "Bearer",
 		TimeFunc:      time.Now,
+		LoginResponse: func(c *gin.Context, code int, token string, expire time.Time) {
+			uid, exists := c.Get("user_id")
+			if !exists {
+				c.JSON(http.StatusOK, gin.H{
+					"status_code": http.StatusBadRequest,
+					"status_msg":  "登录失败",
+				})
+				return
+			}
+			c.JSON(http.StatusOK, gin.H{
+				"status_code": 0,
+				"status_msg":  "登录成功",
+				"user_id":     uid,
+				"token":       token,
+				"expire":      expire.Format(time.RFC3339),
+			})
+		},
 	})
 
 	// public directory is used to serve static resources
-	r.Static("/static", "./public")
+	r.Static("/static", "../../public") // 注意运行路径和根路径不是同一工作目录
 
 	apiRouter := r.Group("/douyin")
-
+	// apiRouter.Use(authMiddleware.MiddlewareFunc()) 是否开启token参数验证
 	// basic apis
 	apiRouter.GET("/feed/", handlers.DouyinFeed)
 	apiRouter.GET("/user/", handlers.UserInfo)

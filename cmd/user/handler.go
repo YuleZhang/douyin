@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 
-	"github.com/RaymondCode/simple-demo/cmd/user/pack"
-	"github.com/RaymondCode/simple-demo/cmd/user/service"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
+	"github.com/yulezhang/douyin/cmd/user/pack"
+	"github.com/yulezhang/douyin/cmd/user/service"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 // UserServiceImpl implements the last service interface defined in the IDL.

@@ -1,8 +1,8 @@
 package pack
 
 import (
-	"github.com/RaymondCode/simple-demo/cmd/user/dao/db"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
+	"github.com/yulezhang/douyin/cmd/user/dao/db"
+	"github.com/yulezhang/douyin/kitex_gen/user"
 )
 
 // User pack user info

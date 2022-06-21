@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"github.com/RaymondCode/simple-demo/cmd/video/dao/db"
+	"github.com/yulezhang/douyin/cmd/video/dao/db"
 )
 
 func Init() {

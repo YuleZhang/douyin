@@ -4,15 +4,15 @@ import (
 	"context"
 	"time"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user/userservice"
-	"github.com/RaymondCode/simple-demo/pkg/constants"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
-	"github.com/RaymondCode/simple-demo/pkg/middleware"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/retry"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	trace "github.com/kitex-contrib/tracer-opentracing"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/kitex_gen/user/userservice"
+	"github.com/yulezhang/douyin/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/errno"
+	"github.com/yulezhang/douyin/pkg/middleware"
 )
 
 var userClient userservice.Client

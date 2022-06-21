@@ -2,7 +2,7 @@
 package userservice
 
 import (
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
+	"github.com/yulezhang/douyin/kitex_gen/user"
 	"github.com/cloudwego/kitex/server"
 )
 

@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/RaymondCode/simple-demo/cmd/api/rpc"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
 	"github.com/gin-gonic/gin"
+	"github.com/yulezhang/douyin/cmd/api/rpc"
+	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 type FeedResponse struct {
@@ -28,7 +28,7 @@ func DouyinFeed(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, FeedResponse{
 		Response: Response{
-			StatusCode: resp.BaseResp.StatusCode,
+			StatusCode: errno.SuccessCode,
 			StatusMsg:  resp.BaseResp.StatusMsg,
 		},
 		VideoList: resp.VideoList,

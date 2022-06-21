@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/RaymondCode/simple-demo/cmd/user/dao/db"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
+	"github.com/yulezhang/douyin/cmd/user/dao/db"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 type DouyinUserRegisterService struct {

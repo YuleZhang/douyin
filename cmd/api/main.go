@@ -3,11 +3,11 @@ package main
 import (
 	"net/http"
 
-	"github.com/RaymondCode/simple-demo/cmd/api/rpc"
-	"github.com/RaymondCode/simple-demo/pkg/constants"
-	"github.com/RaymondCode/simple-demo/pkg/tracer"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/gin-gonic/gin"
+	"github.com/yulezhang/douyin/cmd/api/rpc"
+	"github.com/yulezhang/douyin/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/tracer"
 )
 
 func Init() {

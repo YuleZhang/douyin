@@ -4,15 +4,15 @@ import (
 	"context"
 	"time"
 
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video/videoservice"
-	"github.com/RaymondCode/simple-demo/pkg/constants"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
-	"github.com/RaymondCode/simple-demo/pkg/middleware"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/pkg/retry"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	trace "github.com/kitex-contrib/tracer-opentracing"
+	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/yulezhang/douyin/kitex_gen/video/videoservice"
+	"github.com/yulezhang/douyin/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/errno"
+	"github.com/yulezhang/douyin/pkg/middleware"
 )
 
 var videoClient videoservice.Client

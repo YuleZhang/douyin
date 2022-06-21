@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/RaymondCode/simple-demo/pkg/constants"
-	"github.com/RaymondCode/simple-demo/pkg/errno"
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/cloudwego/kitex/pkg/remote"
 	"github.com/shirou/gopsutil/cpu"
+	"github.com/yulezhang/douyin/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 var _ remote.InboundHandler = &cpuLimitHandler{}

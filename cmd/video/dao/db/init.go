@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/RaymondCode/simple-demo/pkg/constants"
+	"github.com/yulezhang/douyin/pkg/constants"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	gormopentracing "gorm.io/plugin/opentracing"

@@ -1,6 +1,6 @@
 package dao
 
-import "github.com/RaymondCode/simple-demo/cmd/user/dao/db"
+import "github.com/yulezhang/douyin/cmd/user/dao/db"
 
 func Init() {
 	db.Init()

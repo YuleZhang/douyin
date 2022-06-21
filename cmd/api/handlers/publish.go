@@ -7,10 +7,11 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/RaymondCode/simple-demo/cmd/api/rpc"
-	"github.com/RaymondCode/simple-demo/kitex_gen/user"
-	"github.com/RaymondCode/simple-demo/kitex_gen/video"
 	"github.com/gin-gonic/gin"
+	"github.com/yulezhang/douyin/cmd/api/rpc"
+	"github.com/yulezhang/douyin/kitex_gen/user"
+	"github.com/yulezhang/douyin/kitex_gen/video"
+	"github.com/yulezhang/douyin/pkg/errno"
 )
 
 type UserVideoListResponse struct {
@@ -20,8 +21,15 @@ type UserVideoListResponse struct {
 
 // Publish check token then save upload file to public directory
 func Publish(c *gin.Context) {
-	uid := c.PostForm("user_id")
-	user_id, err := strconv.ParseInt(uid, 10, 64)
+	uid, exists := c.Get("user_id")
+	if !exists {
+		c.JSON(http.StatusOK, Response{
+			StatusCode: 1,
+			StatusMsg:  "user_id get error",
+		})
+		return
+	}
+	user_id, err := strconv.ParseInt(uid.(string), 10, 64)
 	// token := c.PostForm("token")
 	// token校验待加
 	// if _, exist := usersLoginInfo[token]; !exist {
@@ -43,6 +51,7 @@ func Publish(c *gin.Context) {
 		UserId: user_id,
 		Token:  "test",
 	})
+	fmt.Println("test user", user_resp.User, user_id)
 	u := user_resp.User[0]
 	finalName := fmt.Sprintf("%d_%s", u.Id, filename)
 	saveFile := filepath.Join("./public/", finalName)
@@ -67,7 +76,7 @@ func Publish(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, Response{
-		StatusCode: publich_resp.BaseResp.StatusCode,
+		StatusCode: 0,
 		StatusMsg:  finalName + " uploaded successfully",
 	})
 }
@@ -78,7 +87,7 @@ func PublishList(c *gin.Context) {
 	user_id, err := strconv.ParseInt(uid, 10, 64)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, UserVideoListResponse{
-			Response: Response{StatusCode: 0, StatusMsg: "Error parameter"},
+			Response: Response{StatusCode: errno.SuccessCode, StatusMsg: "Error parameter"},
 		})
 	}
 
@@ -89,7 +98,7 @@ func PublishList(c *gin.Context) {
 
 	c.JSON(http.StatusOK, UserVideoListResponse{
 		Response: Response{
-			StatusCode: resp.BaseResp.StatusCode,
+			StatusCode: errno.SuccessCode,
 			StatusMsg:  resp.BaseResp.StatusMsg,
 		},
 		VideoList: resp.VideoList,
