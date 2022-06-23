@@ -1,4 +1,4 @@
-# simple-demo
+# Douyin
 
 # 抖音项目服务端
 
@@ -16,15 +16,15 @@
 * 链路追踪基于**opentracing**
 * 使用**docker-compose**管理容器
 
-| 服务名称 | 模块介绍           |      | 模块负责人  | 模块内容                                 | 开发进度 |
-| -------- | ------------------ | ---- | ----------- | ---------------------------------------- | -------- |
-| api      | 抖音api服务        |      | Optimum     | **获取服务列表、相应前端http请求**       | 已完成   |
-| user     | 抖音用户数据管理   |      | Optimum     | **用户校验**、**用户注册**、**用户登录** | 已完成   |
-| video    | 抖音视频流管理     |      | Optimum     | **视频流、视频列表、视频上传**           | 已完成   |
-| favorite | 抖音点赞管理       |      | FaMily。    | **点赞操作、点赞列表**                   | 开发中   |
-| comment  | 抖音评论管理       |      | FaMily。    | **评论操作、评论列表**                   | 开发中   |
-| relation | 抖音关注与粉丝管理 |      | 嗷嗷哦润橘_ | **关注操作、关注列表、粉丝列表**         | 开发中   |
-|          |                    |      |             |                                          |          |
+| 服务名称 | 模块介绍                | 模块负责人  | 模块内容                                 | 开发进度 |
+| -------- | ---------------------- | ----------- | ---------------------------------------- | -------- |
+| api      | 抖音api服务            | Optimum     | **获取服务列表、相应前端http请求**       | 已完成   |
+| user     | 抖音用户数据管理         | Optimum     | **用户校验**、**用户注册**、**用户登录** | 已完成   |
+| video    | 抖音视频流管理          | Optimum     | **视频流、视频列表、视频上传**           | 已完成   |
+| favorite | 抖音点赞管理            | FaMily。    | **点赞操作、点赞列表**                   | 开发中   |
+| comment  | 抖音评论管理            | FaMily。    | **评论操作、评论列表**                   | 开发中   |
+| relation | 抖音关注与粉丝管理      | 嗷嗷哦润橘_ | **关注操作、关注列表、粉丝列表**         | 开发中   |
+|          |                        |             |                                          |          |
 
 ## 开发说明
 
@@ -32,7 +32,7 @@
 
 * 设计包含**请求、响应以及服务信息**的thrift-idl文件
 * 编写**特定模块服务端代码，依次完成dao，service，handler部分的开发，用于和api服务的交互**
-* 编写api服务端代码，封装rpc请求函数，在handler中基于gin处理解析http请求参数（**即从http request到rpc request**），并重新打包rpc响应内容（即从rpc response到http response）
+* 编写api服务端代码，封装rpc请求函数，在handler中基于gin处理解析http请求参数（**即从http request到rpc request**），并重新打包rpc响应内容（**即从rpc response到http response**）
 
 
 ## 运行方式
@@ -55,7 +55,7 @@ sh output/bootstrap.sh
 
 ```bash
 cd cmd/user
-sh run.sh
+sh build.sh
 sh output/bootstrap.sh
 ```
 
@@ -63,7 +63,7 @@ sh output/bootstrap.sh
 
 ```bash
 cd cmd/video
-sh video.sh
+sh build.sh
 sh output/bootstrap.sh
 ```
 
