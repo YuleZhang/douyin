@@ -17,13 +17,13 @@ func NewDouyinPublishActionService(ctx context.Context) *DouyinPublishActionServ
 
 func (s *DouyinPublishActionService) PublishAction(req *video.DouyinPublishActionRequest) error {
 	err := db.CreateVideo(s.ctx, db.Video{
-		UserID:        req.Video.Author.Id,
-		PlayUrl:       req.Video.PlayUrl,
-		CoverUrl:      req.Video.CoverUrl,
-		FavoriteCount: req.Video.FavoriteCount,
-		CommentCount:  req.Video.CommentCount,
-		IsFavorite:    req.Video.IsFavorite,
-		Title:         req.Video.Title,
+		UserID:        req.UserId,
+		PlayUrl:       req.FileUrl,
+		CoverUrl:      req.CoverUrl,
+		FavoriteCount: 0,
+		CommentCount:  0,
+		IsFavorite:    false,
+		Title:         req.Title,
 	})
 	if err != nil {
 		return err

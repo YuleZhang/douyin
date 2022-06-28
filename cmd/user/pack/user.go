@@ -10,7 +10,7 @@ func User(u *db.User) *user.User {
 	if u == nil {
 		return nil
 	}
-	return &user.User{Id: int64(u.ID), Name: u.Name, FollowCount: &u.FollowCount, FollowerCount: &u.FollowerCount, IsFollow: u.IsFollow}
+	return &user.User{Id: int64(u.ID), Name: u.Name, FollowCount: u.FollowCount, FollowerCount: u.FollowerCount, IsFollow: u.IsFollow}
 }
 
 // Users pack list of user info

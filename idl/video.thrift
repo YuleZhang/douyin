@@ -2,30 +2,32 @@ namespace go video
 include "user.thrift"
 
 struct Video{
-    1:required i64 id
-    2:required user.User author
-    3:required string play_url
-    4:required string cover_url
-    5:required i64 favorite_count
-    6:required i64 comment_count
-    7:required bool is_favorite
-    8:required string title
+    1:i64 id
+    2:user.User author
+    3:string play_url
+    4:string cover_url
+    5:i64 favorite_count
+    6:i64 comment_count
+    7:bool is_favorite
+    8:string title
 }
 
 struct DouyinFeedRequest {
-    1:optional i64 latest_time
-    2:optional string token
+    1:i64 latest_time
+    2:string token
 }
 
 struct DouyinFeedResponse {
     1:user.BaseResp base_resp
     2:list<Video> video_list
-    3:optional i64 next_time
+    3:i64 next_time
 }
 
 struct DouyinPublishActionRequest {
-    1:required string token
-    2:Video video
+    1:i64 user_id
+    2:string file_url
+    3:string cover_url
+    4:string title
 }
 
 struct DouyinPublishActionResponse {
@@ -33,8 +35,8 @@ struct DouyinPublishActionResponse {
 }
 
 struct DouyinPublishListRequest {
-    1:required i64 user_id
-    2:required string token
+    1:i64 user_id
+    2:string token
 }
 
 struct DouyinPublishListResponse {
@@ -43,15 +45,15 @@ struct DouyinPublishListResponse {
 }
 
 struct DouyinFavoriteActionRequest {
-    1:required i64 user_id
-    2:required string token
-    3:required i64 video_id
-    4:required i32 action_type
+    1:i64 user_id
+    2:string token
+    3:i64 video_id
+    4:i32 action_type
 }
 
 struct DouyinFavoriteListRequest {
-    1:required i64 user_id
-    2:required string token
+    1:i64 user_id
+    2:string token
 }
 
 struct DouyinFavoriteListResponse {

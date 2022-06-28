@@ -12,6 +12,7 @@ const (
 	LoginErrCode            = 10003
 	UserNotExistErrCode     = 10004
 	UserAlreadyExistErrCode = 10005
+	FileSaveErrCode         = 10006
 )
 
 type ErrNo struct {
@@ -37,6 +38,7 @@ var (
 	ServiceErr          = NewErrNo(ServiceErrCode, "Service is unable to start successfully")
 	ParamErr            = NewErrNo(ParamErrCode, "Wrong Parameter has been given")
 	LoginErr            = NewErrNo(LoginErrCode, "Wrong username or password")
+	FileSaveErr         = NewErrNo(FileSaveErrCode, "File save error")
 	UserNotExistErr     = NewErrNo(UserNotExistErrCode, "User does not exists")
 	UserAlreadyExistErr = NewErrNo(UserAlreadyExistErrCode, "User already exists")
 )

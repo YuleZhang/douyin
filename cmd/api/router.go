@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 	"net/http"
 	"time"
 
@@ -37,7 +38,7 @@ func initRouter(r *gin.Engine) {
 			c.Set("user_id", uid)
 			return uid, err
 		},
-		TokenLookup:   "header: Authorization, query: token, cookie: jwt",
+		TokenLookup:   "header: Authorization, query: token, cookie: jwt, form: token",
 		TokenHeadName: "Bearer",
 		TimeFunc:      time.Now,
 		LoginResponse: func(c *gin.Context, code int, token string, expire time.Time) {
@@ -45,13 +46,13 @@ func initRouter(r *gin.Engine) {
 			if !exists {
 				c.JSON(http.StatusOK, gin.H{
 					"status_code": http.StatusBadRequest,
-					"status_msg":  "登录失败",
+					"status_msg":  "login failed",
 				})
 				return
 			}
 			c.JSON(http.StatusOK, gin.H{
 				"status_code": 0,
-				"status_msg":  "登录成功",
+				"status_msg":  "login success",
 				"user_id":     uid,
 				"token":       token,
 				"expire":      expire.Format(time.RFC3339),
@@ -59,16 +60,26 @@ func initRouter(r *gin.Engine) {
 		},
 	})
 
-	// public directory is used to serve static resources
-	r.Static("/static", "../../public") // 注意运行路径和根路径不是同一工作目录
+	// public directory is used to serve static resources, take care that the path is current directory
+	r.Static("/static", "../../public")
 
+	r.NoRoute(authMiddleware.MiddlewareFunc(), func(c *gin.Context) {
+		claim := jwt.ExtractClaims(c)
+		log.Printf("NoRoute claims: %#v\n", claim)
+		c.JSON(404, gin.H{"code": "PAGE_NOT_FOUND", "message": "Page not found"})
+	})
+
+	// token is not necessary in those api
+	r.GET("/douyin/feed/", handlers.DouyinFeed)
+	r.POST("/douyin/user/register/", handlers.Register)
+	r.POST("/douyin/user/login/", authMiddleware.LoginHandler)
+
+	// token are required for those api
 	apiRouter := r.Group("/douyin")
-	// apiRouter.Use(authMiddleware.MiddlewareFunc()) 是否开启token参数验证
+	apiRouter.Use(authMiddleware.MiddlewareFunc())
+
 	// basic apis
-	apiRouter.GET("/feed/", handlers.DouyinFeed)
 	apiRouter.GET("/user/", handlers.UserInfo)
-	apiRouter.POST("/user/register/", handlers.Register)
-	apiRouter.POST("/user/login/", authMiddleware.LoginHandler)
 	apiRouter.POST("/publish/action/", handlers.Publish)
 	apiRouter.GET("/publish/list/", handlers.PublishList)
 

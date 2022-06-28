@@ -14,7 +14,9 @@
 * 采用**etcd**进行服务发现和服务注册
 * 采用**go-jwt**生成token进行用户验证
 * 链路追踪基于**opentracing**
-* 使用**docker-compose**管理容器
+* 使用腾讯云OSS存储视频和图片
+* 使用viper读取在线数据，保证配置安全
+* 使用**docker-compose**管理容
 
 | 服务名称 | 模块介绍                | 模块负责人  | 模块内容                                 | 开发进度 |
 | -------- | ---------------------- | ----------- | ---------------------------------------- | -------- |
@@ -61,6 +63,8 @@ sh output/bootstrap.sh
 
 4. 运行video服务
 
+注意：运行视频服务之前，要配置好位于`pkg/constants/constants.go`文件中腾讯云OSS访问的key和id，否则文件将无法上传
+
 ```bash
 cd cmd/video
 sh build.sh
@@ -80,8 +84,12 @@ sh output/bootstrap.sh
 
 测试数据写在 demo_data.go 中，用于列表接口的 mock 测试
 
-## 其他
+## 常见问题
 * 本项目基于青训营Go笔记项目，相关资料可参考[青训营笔记服务项目概述](https://juejin.cn/post/7095977466094682148#heading-31)
+* [ubuntu清华镜像配置](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
 * hyper-v和安卓模拟器冲突问题解决见：[Windows下hyper-v和安卓模拟器冲突问题](https://blog.csdn.net/weixin_42474261/article/details/125396451?spm=1001.2014.3001.5501)
+* BlueStacks可以访问windows server但无法访问wsl2 server问题，可以尝试添加一个端口转发，例如`netsh interface portproxy add v4tov4 listenaddress=<local ip address> listenport=8080 connectaddress=<<wsl2 ip address>> connectport=8080`
+* gin-jwt最新tag 2.8.0还不支持解析post请求中的token，但[相关PR](https://github.com/appleboy/gin-jwt/pull/293/commits)已经通过了，可以手动补充到项目依赖中
+* 上传遇到`exec: "ffmpeg": executable file not found in %PATH% windows golang`，需要在wsl上安装好ffmpeg（ubuntu安装命令`sudo apt install -y ffmpeg`）
 * https://github.com/a76yyyy/tiktok
 

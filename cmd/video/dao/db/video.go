@@ -39,11 +39,11 @@ func QueryVideoFeed(ctx context.Context) ([]*Video, error) {
 // 查询用户视频列表
 func QueryUserVideoList(ctx context.Context, userID int64) ([]*Video, error) {
 	res := make([]*Video, 0)
-	DB.WithContext(ctx).Debug().Preload("User").Where("ID = ?", userID).Find(&res)
+	DB.WithContext(ctx).Debug().Preload("User").Where("user_id = ?", userID).Find(&res)
 	return res, nil
 }
 
 // 创建视频信息
 func CreateVideo(ctx context.Context, video Video) error {
-	return DB.WithContext(ctx).Debug().Create(video).Error
+	return DB.WithContext(ctx).Debug().Create(&video).Error
 }

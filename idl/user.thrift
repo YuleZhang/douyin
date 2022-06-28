@@ -1,11 +1,11 @@
 namespace go user
 
 struct User {
-    1:required i64 id
-    2:required string name
-    3:optional i64 follow_count # 关注总数
-    4:optional i64 follower_count # 粉丝总数
-    5:required bool is_follow
+    1:i64 id
+    2:string name
+    3:i64 follow_count # 关注总数
+    4:i64 follower_count # 粉丝总数
+    5:bool is_follow
 }
 
 /*
@@ -14,24 +14,24 @@ struct User {
 2. 当没有合适返回消息体时，作为默认选项（例如发生Error）
 */
 struct BaseResp {
-    1:required i32 status_code
-    2:required string status_msg
+    1:i32 status_code
+    2:string status_msg
 }
 
 struct DouyinUserRegisterRequest {
-    1:required string username
-    2:required string password
+    1:string username
+    2:string password
 }
 
 struct DouyinUserRegisterResponse {
     1:BaseResp base_resp
-    2:required i64 user_id
-    3:required string token
+    2:i64 user_id
+    3:string token
 }
 
 struct DouyinUserRequest {
-    1:required i64 user_id
-    2:required string token
+    1:i64 user_id
+    2:string token
 }
 
 struct DouyinUserResponse {
@@ -40,14 +40,14 @@ struct DouyinUserResponse {
 }
 
 struct DouyinUserLoginRequest {
-    1:required string username
-    2:required string password
+    1:string username
+    2:string password
 }
 
 struct DouyinUserLoginResponse {
     1:BaseResp base_resp
-    2:required i64 user_id
-    3:required string token
+    2:i64 user_id
+    3:string token
 }
 
 service UserService {
